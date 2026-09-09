@@ -1,0 +1,492 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jordi Maquinaria — Metal cutting, bending and stamping in Mexico</title>
+
+  <meta name="description" content="Over 50 years supplying industrial cutting, bending and stamping machinery in Mexico. Specialized advice and high-performance brands. Get a quote for your machine." />
+  <meta name="theme-color" content="#063967" />
+  <link rel="canonical" href="https://www.jordimaquinaria.mx/" />
+
+  <!-- Open Graph / redes -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Jordi Maquinaria" />
+  <meta property="og:title" content="Jordi Maquinaria — Transform metal into big ideas" />
+  <meta property="og:description" content="Cutting, bending and stamping solutions for a more competitive industry in Mexico." />
+  <meta property="og:image" content="assets/img/hero.jpg" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon SVG en línea (sin archivo extra) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2307376a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='bold' text-anchor='middle' fill='white'%3EJ%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Jordi Maquinaria",
+    "description": "Industrial cutting, bending and stamping machinery.",
+    "areaServed": "MX",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Polígono Empresarial Santa Rosa Jáuregui, Av. Hércules #301 A, Bodega 13",
+      "addressLocality": "Querétaro",
+      "addressRegion": "Qro.",
+      "postalCode": "76220",
+      "addressCountry": "MX"
+    },
+    "telephone": "+52-442-592-0400",
+    "email": "ventas@jordimaquinaria.mx",
+    "url": "https://www.jordimaquinaria.mx/"
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido" data-i18n="skip">Skip to content</a>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#inicio" aria-label="Jordi Maquinaria — home" data-i18n-aria="brand.aria">
+      <img class="brand-logo" src="assets/img/logo.png" alt="Jordi Maquinaria" width="640" height="218" decoding="async" />
+      <img class="brand-logo brand-logo--light" src="assets/img/logo-light.png" alt="" aria-hidden="true" width="640" height="218" decoding="async" />
+    </a>
+    <nav aria-label="Main navigation" data-i18n-aria="nav.aria">
+      <a href="#equipos" data-i18n="nav.equipment">Equipment</a>
+      <a href="#aplicaciones" data-i18n="nav.applications">Applications</a>
+      <a href="#nosotros" data-i18n="nav.about">About</a>
+      <a href="#contacto" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <div class="language lang-switch" role="group" aria-label="Language" data-i18n-aria="lang.aria">
+        <button type="button" class="lang-switch__btn" data-lang-btn="en" aria-pressed="true">EN</button>
+        <span class="lang-switch__sep" aria-hidden="true">/</span>
+        <button type="button" class="lang-switch__btn" data-lang-btn="es" aria-pressed="false">ES</button>
+      </div>
+      <a class="button button-blue compact" href="#contacto" data-i18n="cta.quoteNow">Get a quote <i aria-hidden="true">→</i></a>
+    </div>
+  </header>
+
+  <aside class="scene-indicator" aria-label="Scene navigation" data-i18n-aria="indicator.aria" hidden>
+    <button type="button" data-scene-button="inicio"><span>01</span></button>
+    <button type="button" data-scene-button="equipos"><span>02</span></button>
+    <button type="button" data-scene-button="calidad"><span>03</span></button>
+    <button type="button" data-scene-button="nosotros"><span>04</span></button>
+    <button type="button" data-scene-button="aplicaciones"><span>05</span></button>
+    <button type="button" data-scene-button="contacto"><span>06</span></button>
+  </aside>
+
+  <main id="contenido" class="stage">
+    <section class="scene hero" id="inicio" data-scene="0" aria-labelledby="hero-title">
+      <div class="hero-media" data-bg role="img" aria-label="Laser cutting of a steel plate" data-i18n-aria="hero.media.aria"></div>
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal data-i18n="hero.eyebrow">Industrial machinery</p>
+        <h1 id="hero-title" data-reveal data-i18n="hero.title">Transform <span>metal</span> into <span class="hl">big ideas</span></h1>
+        <p class="intro" data-reveal data-i18n="hero.intro">Cutting, bending and stamping solutions for a more competitive industry in Mexico.</p>
+        <div class="buttons" data-reveal>
+          <a class="button button-blue" href="#contacto" data-i18n="hero.btnQuote">Quote your machine <i aria-hidden="true">→</i></a>
+          <a class="button button-outline" href="#equipos" data-i18n="hero.btnExplore">Explore equipment</a>
+        </div>
+
+        <!-- Ticker tipográfico: 11 tipos de maquinaria. Vive DENTRO de .hero-copy,
+             sobre el fade existente (sin fondo propio). El JS clona el set para
+             llenar el ancho y fija --marquee-shift = ancho de UN set (loop perfecto). -->
+        <div class="hero-marquee" data-reveal>
+          <ul class="hero-marquee__track" aria-label="Jordi Maquinaria machinery types" data-i18n-aria="hero.marqueeAria">
+            <li data-i18n="mq.1">Laser</li>
+            <li data-i18n="mq.2">Band saws</li>
+            <li data-i18n="mq.3">Circular saws</li>
+            <li data-i18n="mq.4">Shears</li>
+            <li data-i18n="mq.5">Waterjet</li>
+            <li data-i18n="mq.6">Press brakes</li>
+            <li data-i18n="mq.7">Plate rolls</li>
+            <li data-i18n="mq.8">Section benders</li>
+            <li data-i18n="mq.9">Punching machines</li>
+            <li data-i18n="mq.10">Presses</li>
+            <li data-i18n="mq.11">Press feeders</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene equipment" id="equipos" data-scene="1" aria-labelledby="equipos-title">
+      <div class="section-heading">
+        <p class="eyebrow" data-reveal data-i18n="eq.eyebrow">Our equipment</p>
+        <div class="section-heading__row">
+          <h2 id="equipos-title" class="section-heading__title" data-reveal data-i18n="eq.title">Technology for <span>every need</span></h2>
+          <p class="section-text" data-reveal data-i18n="eq.text">A selection of high-performance machinery, backed by the world's best brands.</p>
+          <a class="catalog" href="#contacto" data-reveal data-i18n="eq.catalog">View full catalog →</a>
+        </div>
+      </div>
+      <div class="ecard-grid">
+        <article class="ecard" data-reveal>
+          <img class="ecard__img" src="assets/img/cat-corte.jpg" alt="Metal cutting with a spray of sparks" data-i18n-alt="eq.c1.alt" decoding="async" />
+          <div class="ecard__body">
+            <span class="ecard__num">01</span>
+            <h3 class="ecard__title" data-i18n="eq.c1.title">Cutting</h3>
+            <ul class="ecard__list">
+              <li data-i18n="eq.c1.l1">Laser</li>
+              <li data-i18n="eq.c1.l2">Saws</li>
+              <li data-i18n="eq.c1.l3">Shears</li>
+              <li data-i18n="eq.c1.l4">Water Jet</li>
+            </ul>
+            <a class="ecard__cta" href="#contacto" data-i18n="eq.cta">View equipment <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="ecard" data-reveal>
+          <img class="ecard__img" src="assets/img/cat-doblado.jpg" alt="Metal press brake in operation" data-i18n-alt="eq.c2.alt" decoding="async" />
+          <div class="ecard__body">
+            <span class="ecard__num">02</span>
+            <h3 class="ecard__title" data-i18n="eq.c2.title">Bending</h3>
+            <ul class="ecard__list">
+              <li data-i18n="eq.c2.l1">Press brakes</li>
+              <li data-i18n="eq.c2.l2">Plate rolls</li>
+              <li data-i18n="eq.c2.l3">Section benders</li>
+            </ul>
+            <a class="ecard__cta" href="#contacto" data-i18n="eq.cta">View equipment <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="ecard" data-reveal>
+          <img class="ecard__img" src="assets/img/cat-troquelado.jpg" alt="Metal stamping and punching machinery" data-i18n-alt="eq.c3.alt" decoding="async" />
+          <div class="ecard__body">
+            <span class="ecard__num">03</span>
+            <h3 class="ecard__title" data-i18n="eq.c3.title">Stamping</h3>
+            <ul class="ecard__list">
+              <li data-i18n="eq.c3.l1">Punching machines</li>
+              <li data-i18n="eq.c3.l2">Presses</li>
+              <li data-i18n="eq.c3.l3">Feeders</li>
+            </ul>
+            <a class="ecard__cta" href="#contacto" data-i18n="eq.cta">View equipment <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="ecard" data-reveal>
+          <img class="ecard__img" src="assets/img/cat-automatizacion.jpg" alt="Industrial automation: sheet loading and unloading" data-i18n-alt="eq.c4.alt" decoding="async" />
+          <div class="ecard__body">
+            <span class="ecard__num">04</span>
+            <h3 class="ecard__title" data-i18n="eq.c4.title">Automation</h3>
+            <ul class="ecard__list">
+              <li data-i18n="eq.c4.l1">Automation</li>
+              <li data-i18n="eq.c4.l2">Feeding</li>
+              <li data-i18n="eq.c4.l3">Load / Unload</li>
+            </ul>
+            <a class="ecard__cta" href="#contacto" data-i18n="eq.cta">View equipment <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="scene origin" id="calidad" data-scene="2" aria-labelledby="calidad-title">
+      <div class="origin-copy" data-scene-scroll>
+        <p class="eyebrow origin-eyebrow" data-reveal>
+          <span data-i18n="or.eyebrow">Quality / Origin</span>
+          <svg class="origin-flag" viewBox="0 0 54 36" role="img" aria-label="European Union" data-i18n-aria="or.flag.aria">
+            <rect width="54" height="36" fill="#003399" />
+            <g fill="#FFCC00">
+              <use href="#eu-flag-star" x="27" y="6" /><use href="#eu-flag-star" x="33" y="7.61" /><use href="#eu-flag-star" x="37.39" y="12" /><use href="#eu-flag-star" x="39" y="18" /><use href="#eu-flag-star" x="37.39" y="24" /><use href="#eu-flag-star" x="33" y="28.39" /><use href="#eu-flag-star" x="27" y="30" /><use href="#eu-flag-star" x="21" y="28.39" /><use href="#eu-flag-star" x="16.61" y="24" /><use href="#eu-flag-star" x="15" y="18" /><use href="#eu-flag-star" x="16.61" y="12" /><use href="#eu-flag-star" x="21" y="7.61" />
+            </g>
+            <defs>
+              <path id="eu-flag-star" d="M0 -2.2 0.68 -0.49 2.09 -0.68 0.8 0.26 1.29 1.78 0 0.84 -1.29 1.78 -0.8 0.26 -2.09 -0.68 -0.68 -0.49Z" />
+            </defs>
+          </svg>
+        </p>
+        <h2 id="calidad-title" data-reveal data-i18n="or.title">European quality<br />that <span class="hl">makes the difference</span></h2>
+        <p class="origin-lead" data-reveal data-i18n="or.lead">At Jordi Maquinaria we deliver industrial solutions built to the highest European standards of quality, precision and durability. Technology engineered to meet the real demands of manufacturing.</p>
+        <div class="origin-marquee" data-reveal>
+          <ul class="origin-marquee__track" aria-label="Jordi Maquinaria quality pillars" data-i18n-aria="or.marqueeAria">
+            <li>
+              <span class="origin-marquee__ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2 19.6 7.6v8.8L12 20.8 4.4 16.4V7.6z" /><circle cx="12" cy="12" r="3.1" /></svg>
+              </span>
+              <span class="origin-marquee__label" data-i18n="or.p1.label">Technology</span>
+              <span class="origin-marquee__desc" data-i18n="or.p1.desc">Latest-generation solutions</span>
+            </li>
+            <li>
+              <span class="origin-marquee__ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.3" /><path d="M12 1.8v4M12 18.2v4M1.8 12h4M18.2 12h4" /><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" /></svg>
+              </span>
+              <span class="origin-marquee__label" data-i18n="or.p2.label">Precision</span>
+              <span class="origin-marquee__desc" data-i18n="or.p2.desc">Consistent results in every process</span>
+            </li>
+            <li>
+              <span class="origin-marquee__ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.6 19 5.4v6.2c0 4.5-3 7.6-7 9.8-4-2.2-7-5.3-7-9.8V5.4z" /><path d="m8.7 12 2.3 2.3 4.3-4.6" /></svg>
+              </span>
+              <span class="origin-marquee__label" data-i18n="or.p3.label">Quality</span>
+              <span class="origin-marquee__desc" data-i18n="or.p3.desc">Manufacturing to European standards</span>
+            </li>
+            <li>
+              <span class="origin-marquee__ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9" /><path d="M12 7v5.4l3.4 2" /></svg>
+              </span>
+              <span class="origin-marquee__label" data-i18n="or.p4.label">Experience</span>
+              <span class="origin-marquee__desc" data-i18n="or.p4.desc">Technology applied to real industry</span>
+            </li>
+          </ul>
+        </div>
+        <a class="origin-cta" href="#nosotros" data-reveal data-i18n="or.cta">Discover our processes <i aria-hidden="true">→</i></a>
+      </div>
+
+      <div class="origin-media" data-bg role="img" aria-label="Jordi Maquinaria precision laser-cutting machine" data-i18n-aria="or.media.aria">
+        <div class="origin-stamp" aria-hidden="true">
+          <svg class="origin-stamp__tech" viewBox="0 0 400 300" fill="none" aria-hidden="true" data-reveal>
+            <path d="M8 40V8h32M360 8h32v32M392 260v32h-32M40 292H8v-32" stroke="currentColor" stroke-width="1" />
+            <path class="origin-stamp__tech-line" d="M14 150h372" stroke="currentColor" stroke-width="1" stroke-dasharray="1 6" />
+            <path d="M60 143v14M120 145v10M200 140v20M280 145v10M340 143v14" stroke="currentColor" stroke-width="1" />
+            <g fill="currentColor">
+              <circle cx="150" cy="95" r="1.4" /><circle cx="163" cy="88" r="1.4" /><circle cx="172" cy="99" r="1.4" /><circle cx="181" cy="83" r="1.4" /><circle cx="189" cy="93" r="1.4" /><circle cx="198" cy="104" r="1.4" /><circle cx="205" cy="86" r="1.4" /><circle cx="214" cy="97" r="1.4" /><circle cx="223" cy="90" r="1.4" /><circle cx="169" cy="110" r="1.4" /><circle cx="187" cy="114" r="1.4" /><circle cx="206" cy="118" r="1.4" /><circle cx="232" cy="104" r="1.4" /><circle cx="158" cy="104" r="1.4" />
+            </g>
+            <text x="12" y="30" class="origin-stamp__coord">48°N · 10°E</text>
+            <text x="388" y="286" class="origin-stamp__coord" text-anchor="end">STD · EU</text>
+          </svg>
+          <span class="origin-stamp__kicker" data-reveal data-i18n="or.stamp.kicker">European engineering</span>
+          <span class="origin-stamp__made" data-reveal data-i18n="or.stamp.made">Made in</span>
+          <span class="origin-stamp__europe" data-reveal data-i18n="or.stamp.europe">Europe</span>
+          <span class="origin-stamp__rule" data-reveal></span>
+          <span class="origin-stamp__tags" data-reveal data-i18n="or.stamp.tags">Precision · Engineering · Quality · Trust</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="scene about" id="nosotros" data-scene="3" aria-labelledby="nosotros-title">
+      <div class="about-copy">
+        <p class="eyebrow" data-reveal data-i18n="ab.eyebrow">About Jordi</p>
+        <h2 id="nosotros-title" data-reveal data-i18n="ab.title">Over 50 years moving industry forward</h2>
+        <p data-reveal data-i18n="ab.text">Experience, precision and a specialized team to take every project further.</p>
+        <dl class="about-facts">
+          <div data-reveal><dt>+50</dt><dd data-i18n="ab.fact1">years of experience</dd></div>
+          <div data-reveal><dt>+100</dt><dd data-i18n="ab.fact2">clients in Mexico</dd></div>
+          <div data-reveal><dt>+1,000</dt><dd data-i18n="ab.fact3">machines installed</dd></div>
+        </dl>
+        <ul class="about-benefits">
+          <li data-reveal data-i18n="ab.ben1">Specialized advice</li>
+          <li data-reveal data-i18n="ab.ben2">High-performance brands</li>
+        </ul>
+        <a class="catalog" href="#contacto" data-reveal data-i18n="ab.catalog">Discover our story →</a>
+      </div>
+      <div class="about-media" data-bg role="img" aria-label="Industrial steel structure" data-i18n-aria="ab.media.aria">
+        <p data-i18n="ab.media.caption">Experience<br />that transforms<br />metal</p>
+      </div>
+    </section>
+
+    <section class="scene applications" id="aplicaciones" data-scene="4" data-apps aria-labelledby="aplicaciones-title">
+      <div class="apps-panel">
+        <p class="eyebrow light" data-reveal data-i18n="ap.eyebrow">Applications</p>
+        <h2 id="aplicaciones-title" data-reveal data-i18n="ap.title">Real solutions for real industries</h2>
+        <a class="button button-light" href="#contacto" data-reveal data-i18n="ap.btnAll">View all applications <i aria-hidden="true">→</i></a>
+      </div>
+
+      <div class="apps-gallery">
+        <ul class="apps-track" aria-label="Jordi Maquinaria industrial applications" data-i18n-aria="ap.trackAria">
+          <li class="app" role="img" aria-label="Urban public lighting at night" data-i18n-aria="ap.1.aria"
+              style="background-image:url('https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&amp;fit=crop&amp;w=1200&amp;q=76')">
+            <div class="app__body">
+              <span class="app__num">01</span>
+              <p class="app__industry" data-i18n="ap.1.industry">Public lighting</p>
+              <h3 class="app__title" data-i18n="ap.1.title">Technology for structures that last</h3>
+              <div class="app__text">
+                <p data-i18n="ap.1.t1">With Jordi Maquinaria technology, public-lighting manufacturers can take the production of brackets, columns and lamp posts to a more precise, flexible and efficient process.</p>
+                <p data-i18n="ap.1.t2">Our fiber laser cutting solutions make it possible to work metal structures with high levels of precision, helping to obtain finished products with greater strength and durability.</p>
+                <p data-i18n="ap.1.t3">We have extensive experience in this type of application and understand the demands of manufacturing components meant to stay exposed and perform for years.</p>
+                <div class="app__more">
+                  <div class="app__more-inner">
+                    <p data-i18n="ap.1.f1">Fiber laser cutting technology helps optimize different manufacturing stages of the elements used in public lighting. The precision of the process makes it easier to produce complex geometries and cuts, while the flexibility of the technology allows it to adapt to different designs and production needs.</p>
+                    <p data-i18n="ap.1.f2">With Jordi Maquinaria technology, manufacturers can rely on solutions aimed at improving the flexibility of the production process, optimizing manufacturing times and achieving components with precise, consistent finishes.</p>
+                    <p data-i18n="ap.1.f3">From brackets and columns to different configurations of lamp posts and metal structures, our solutions are designed to meet the sector's real manufacturing needs.</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="app__toggle" aria-expanded="false">
+                <span class="app__toggle-label" data-i18n="ap.readMore">Read more</span>
+                <span class="app__toggle-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </li>
+          <li class="app" role="img" aria-label="Front detail of a car on the production line" data-i18n-aria="ap.2.aria"
+              style="background-image:url('https://images.unsplash.com/photo-1541443131876-44b03de101c5?auto=format&amp;fit=crop&amp;w=1200&amp;q=76')">
+            <div class="app__body">
+              <span class="app__num">02</span>
+              <p class="app__industry" data-i18n="ap.2.industry">Automotive industry</p>
+              <h3 class="app__title" data-i18n="ap.2.title">Precision for an industry that allows no errors</h3>
+              <div class="app__text">
+                <p data-i18n="ap.2.t1">The automotive industry demands precision, speed and consistency in every component. With Jordi Maquinaria technology, laser cutting becomes a solution capable of meeting the demands of one of the most advanced industries in the world.</p>
+                <p data-i18n="ap.2.t2">Our solutions can be used both for sheet-metal processing and for manufacturing components and parts intended for the vehicle interior.</p>
+                <div class="app__more">
+                  <div class="app__more-inner">
+                    <p data-i18n="ap.2.f1">The automotive industry is one of the sectors where the precision of the manufacturing process matters most.</p>
+                    <p data-i18n="ap.2.f2">With Jordi Maquinaria technology, companies can use fiber laser cutting solutions for different applications within the production process, from sheet-metal processing to the manufacture of components intended for the vehicle interior.</p>
+                    <p data-i18n="ap.2.f3">The precision and consistency of laser cutting make it possible to obtain defined geometries and uniform finishes, characteristics that are especially important when working with components that must later be integrated into more complex systems and structures.</p>
+                    <p data-i18n="ap.2.f4">Our technology is aimed at manufacturers looking to improve the efficiency of their processes and rely on a flexible solution capable of adapting to different production needs.</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="app__toggle" aria-expanded="false">
+                <span class="app__toggle-label" data-i18n="ap.readMore">Read more</span>
+                <span class="app__toggle-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </li>
+          <li class="app" role="img" aria-label="Wing of an aircraft above the clouds" data-i18n-aria="ap.3.aria"
+              style="background-image:url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&amp;fit=crop&amp;w=1200&amp;q=76')">
+            <div class="app__body">
+              <span class="app__num">03</span>
+              <p class="app__industry" data-i18n="ap.3.industry">Aeronautics &amp; aerospace</p>
+              <h3 class="app__title" data-i18n="ap.3.title">Technology for processes where precision changes everything</h3>
+              <div class="app__text">
+                <p data-i18n="ap.3.t1">In the aeronautics and aerospace industry, every component is subject to extraordinary demands. Jordi Maquinaria provides cutting technology designed to support industrial processes where precision, quality and flexibility are essential.</p>
+                <p data-i18n="ap.3.t2">More than supplying machinery, we support every client in finding the right technological solution for their manufacturing process.</p>
+                <div class="app__more">
+                  <div class="app__more-inner">
+                    <p data-i18n="ap.3.f1">The aeronautics and aerospace industry is one of the most technically demanding manufacturing environments.</p>
+                    <p data-i18n="ap.3.f2">With Jordi Maquinaria technology, our goal is to adapt the possibilities of laser cutting to the specific needs of each process and application.</p>
+                    <p data-i18n="ap.3.f3">From our commercial and technical department, we support our clients while defining the solution, analyzing material characteristics, geometries, production volumes and the specific needs of each project.</p>
+                    <p data-i18n="ap.3.f4">Continuous investment in technology and development lets us expand the possible applications of laser cutting and offer solutions capable of meeting ever more demanding industrial processes.</p>
+                    <p data-i18n="ap.3.f5">Because in high-precision sectors, technology should not limit the process: it should make it possible.</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="app__toggle" aria-expanded="false">
+                <span class="app__toggle-label" data-i18n="ap.readMore">Read more</span>
+                <span class="app__toggle-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </li>
+          <li class="app" role="img" aria-label="Steel-and-glass architectural structure" data-i18n-aria="ap.4.aria"
+              style="background-image:url('https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&amp;fit=crop&amp;w=1200&amp;q=76')">
+            <div class="app__body">
+              <span class="app__num">04</span>
+              <p class="app__industry" data-i18n="ap.4.industry">Elevators &amp; lifts</p>
+              <h3 class="app__title" data-i18n="ap.4.title">Precision that becomes efficiency</h3>
+              <div class="app__text">
+                <p data-i18n="ap.4.t1">Elevator manufacturing requires precise, uniform and consistent components. With Jordi Maquinaria technology, fiber laser cutting makes it possible to process materials such as stainless steel with high precision and speed, reducing times and optimizing production costs.</p>
+                <div class="app__more">
+                  <div class="app__more-inner">
+                    <p data-i18n="ap.4.f1">Elevator and lift manufacturers need processes capable of maintaining high levels of precision and uniformity in every component.</p>
+                    <p data-i18n="ap.4.f2">Fiber laser cutting offers a particularly suitable solution for this type of manufacturing, where stainless steel plays a key role and cut quality has a direct impact on the final result.</p>
+                    <p data-i18n="ap.4.f3">With Jordi Maquinaria technology, it is possible to process materials with great speed and precision, optimizing manufacturing times and reducing the costs associated with the process.</p>
+                    <p data-i18n="ap.4.f4">As it is a contactless cutting process, the risk of material deformation is minimized and high consistency is achieved across the manufactured parts.</p>
+                    <p data-i18n="ap.4.f5">The result is a more flexible, fast and efficient process, capable of adapting to different designs and production needs.</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="app__toggle" aria-expanded="false">
+                <span class="app__toggle-label" data-i18n="ap.readMore">Read more</span>
+                <span class="app__toggle-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </li>
+          <li class="app" role="img" aria-label="Tractor working in a crop field" data-i18n-aria="ap.5.aria"
+              style="background-image:url('https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&amp;fit=crop&amp;w=1200&amp;q=76')">
+            <div class="app__body">
+              <span class="app__num">05</span>
+              <p class="app__industry" data-i18n="ap.5.industry">Agricultural industry</p>
+              <h3 class="app__title" data-i18n="ap.5.title">More speed for an industry that never stops</h3>
+              <div class="app__text">
+                <p data-i18n="ap.5.t1">Agricultural machinery needs components that are strong, precise and able to withstand demanding manufacturing processes. Jordi Maquinaria provides fiber laser cutting technology to speed up production, improve efficiency and optimize manufacturing costs.</p>
+                <div class="app__more">
+                  <div class="app__more-inner">
+                    <p data-i18n="ap.5.f1">The evolution of the agricultural industry has led machinery and equipment manufacturers to adopt increasingly advanced technological processes.</p>
+                    <p data-i18n="ap.5.f2">In this context, fiber laser cutting makes it possible to process metal parts with great precision and speed, becoming a strategic tool for improving manufacturing processes.</p>
+                    <p data-i18n="ap.5.f3">With Jordi Maquinaria technology, manufacturers can work steel parts of different thicknesses and optimize both the speed and the efficiency of the cutting process.</p>
+                    <p data-i18n="ap.5.f4">In applications where steel parts of roughly 4 to 6 mm are commonly processed, laser technology can be an efficient alternative to other cutting systems, helping reduce manufacturing times and optimize costs.</p>
+                    <p data-i18n="ap.5.f5">The combination of speed, precision and flexibility makes it possible to meet the needs of an industry that has to produce more, better and ever more efficiently.</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="app__toggle" aria-expanded="false">
+                <span class="app__toggle-label" data-i18n="ap.readMore">Read more</span>
+                <span class="app__toggle-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </li>
+          <li class="app" role="img" aria-label="Metal urban furniture structures" data-i18n-aria="ap.6.aria"
+              style="background-image:url('https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&amp;fit=crop&amp;w=1200&amp;q=76')">
+            <div class="app__body">
+              <span class="app__num">06</span>
+              <p class="app__industry" data-i18n="ap.6.industry">Urban furniture</p>
+              <h3 class="app__title" data-i18n="ap.6.title">Design and precision to transform public space</h3>
+              <div class="app__text">
+                <p data-i18n="ap.6.t1">Urban furniture demands functionality, strength and design. With Jordi Maquinaria technology, laser cutting makes it possible to turn metal sheet into precise components to create benches, railings, safety barriers and various elements for public space.</p>
+                <div class="app__more">
+                  <div class="app__more-inner">
+                    <p data-i18n="ap.6.f1">Laser cutting opens new possibilities for transforming metal products intended for urban furniture.</p>
+                    <p data-i18n="ap.6.f2">The precision and flexibility of the process make it possible to produce different geometries and cutting patterns to manufacture components used in benches, railings, safety barriers, protective elements and other metal structures.</p>
+                    <p data-i18n="ap.6.f3">With Jordi Maquinaria technology, manufacturers can work different materials and thicknesses, adapting the process to the specific characteristics of each project.</p>
+                    <p data-i18n="ap.6.f4">Our machines can make cuts of up to 25 mm in steel, 20 mm in stainless steel and 15 mm in aluminum, expanding manufacturing and design possibilities.</p>
+                    <p data-i18n="ap.6.f5">The result is a technology capable of turning a piece of sheet metal into a functional, precise component, ready to become part of the urban environment.</p>
+                  </div>
+                </div>
+              </div>
+              <button type="button" class="app__toggle" aria-expanded="false">
+                <span class="app__toggle-label" data-i18n="ap.readMore">Read more</span>
+                <span class="app__toggle-arrow" aria-hidden="true">→</span>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="scene contact" id="contacto" data-scene="5" aria-labelledby="contacto-title">
+      <div class="contact-intro">
+        <a class="brand inverse" href="#inicio" aria-label="Jordi Maquinaria — home" data-i18n-aria="brand.aria" data-reveal>
+          <img class="brand-logo brand-logo--light" src="assets/img/logo-light.png" alt="Jordi Maquinaria" width="640" height="218" decoding="async" />
+        </a>
+        <h2 id="contacto-title" data-reveal data-i18n="co.title">Let's talk about your project</h2>
+        <p data-reveal data-i18n="co.text">Our team of specialists is ready to advise you and offer the best solution.</p>
+      </div>
+
+      <div class="contact-body" data-scene-scroll>
+      <form id="quote-form" action="https://formspree.io/f/your-form-id" method="post" novalidate data-reveal>
+        <p class="form-status" role="status" aria-live="polite" hidden></p>
+        <label><span data-i18n="co.f.name">Full name</span>
+          <input name="nombre" type="text" autocomplete="name" required />
+        </label>
+        <label><span data-i18n="co.f.company">Company</span>
+          <input name="empresa" type="text" autocomplete="organization" />
+        </label>
+        <div class="two-inputs">
+          <label><span data-i18n="co.f.phone">Phone or WhatsApp</span>
+            <input name="telefono" type="tel" autocomplete="tel" required />
+          </label>
+          <label><span data-i18n="co.f.email">Email</span>
+            <input name="email" type="email" autocomplete="email" required />
+          </label>
+        </div>
+        <label><span data-i18n="co.f.interest">Which equipment are you interested in?</span>
+          <select name="equipo">
+            <option value="" data-i18n="co.f.opt0">Select an option</option>
+            <option data-i18n="co.f.opt1">Cutting</option>
+            <option data-i18n="co.f.opt2">Bending</option>
+            <option data-i18n="co.f.opt3">Stamping</option>
+            <option data-i18n="co.f.opt4">Saws</option>
+            <option data-i18n="co.f.opt5">Sheet processing</option>
+            <option data-i18n="co.f.opt6">Other</option>
+          </select>
+        </label>
+        <button class="button button-blue" type="submit" data-i18n="co.f.submit">Request a quote <i aria-hidden="true">→</i></button>
+      </form>
+
+      <aside class="contact-info" data-reveal>
+        <p class="ci-title" data-i18n="co.info.title">Contact us</p>
+        <p><span class="ci-ico" aria-hidden="true">▣</span> <span>Jordi Maquinaria Mx</span></p>
+        <p><span class="ci-ico" aria-hidden="true">✆</span> <a href="tel:+524425920400">442 592 0400</a></p>
+        <p><span class="ci-ico" aria-hidden="true">✉</span> <a href="mailto:ventas@jordimaquinaria.mx">ventas@jordimaquinaria.mx</a></p>
+        <p><span class="ci-ico" aria-hidden="true">⌖</span> <span data-i18n="co.info.loc">Querétaro, Mexico.<small>Polígono Empresarial Santa Rosa Jáuregui,<br />Av. Hércules #301 A, Bodega 13, C.P. 76220.</small></span></p>
+        <p class="aside-motto" data-i18n="co.motto">More industry.<br />More possibilities.</p>
+      </aside>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/i18n.js" defer></script>
+  <script src="assets/js/cinematic.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+# Cloudflare Pages — cabeceras HTTP
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+
+# HTML: siempre revalidar (para que los cambios se vean al instante)
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS / JS: no llevan hash en el nombre -> caché corta con revalidación
+/assets/css/*
+  Cache-Control: public, max-age=3600, must-revalidate
+/assets/js/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Imágenes: caché larga
+/assets/img/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ----------------------------------------------------------------------------
+# CSP opcional (ya ajustada a lo que usa el sitio: Google Fonts, Formspree,
+# imágenes de la galería en Unsplash). Descomenta las 2 líneas para activarla.
+# /*
+#   Content-Security-Policy: default-src 'self'; base-uri 'self'; img-src 'self' data: https://images.unsplash.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'

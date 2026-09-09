@@ -1,0 +1,1467 @@
+/* ==========================================================================
+   Jordi Maquinaria — hoja de estilos única
+   Orden: tokens · base · componentes · secciones · responsive · modo escena
+   ========================================================================== */
+
+:root {
+  --blue: #063967;
+  --blue-deep: #062e54;
+  --ink: #080a10;
+  --muted: #6b7280;
+  --paper: #f6f8f9;
+  --line: #d9dee2;
+
+  --font-sans: "DM Sans", system-ui, Arial, sans-serif;
+  --font-display: "Manrope", system-ui, sans-serif;
+
+  --header-height: 82px;
+  --frame-padding: clamp(24px, 5.5vw, 92px);
+  --radius: 3px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+h1, h2 {
+  font-family: var(--font-display);
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  margin: 0;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #2c3a4d;
+  margin: 0 0 14px;
+}
+.eyebrow.light { color: #dbe7f2; }
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 100;
+  background: var(--blue);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 0 0 var(--radius) 0;
+}
+.skip-link:focus { left: 0; }
+
+:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Botones
+   -------------------------------------------------------------------------- */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 45px;
+  padding: 0 22px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 160ms ease, color 160ms ease;
+}
+.button:hover { transform: translateY(-2px); }
+.button i { font-style: normal; font-size: 16px; }
+
+.button-blue { background: var(--blue); color: #fff; border: 1px solid var(--blue); }
+.button-blue:hover { background: #08477f; }
+
+.button-outline { background: #fff; color: #111; border: 1px solid #9ea7b2; }
+.button-outline:hover { border-color: var(--blue); color: var(--blue); }
+
+.button-light { background: transparent; color: #fff; border: 1px solid #b5c9dc; }
+.button-light:hover { background: rgba(255, 255, 255, 0.12); }
+
+.button.compact { min-height: 34px; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; padding: 0 16px; }
+
+/* --------------------------------------------------------------------------
+   Marca
+   -------------------------------------------------------------------------- */
+.brand {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+}
+/* Logotipo oficial. Dos versiones: color (fondos claros) e invertida
+   (fondos oscuros); se cruza-funden según el estado de la cabecera. */
+.brand-logo {
+  display: block;
+  height: 37.5px;
+  width: auto;
+  transition: opacity 400ms ease;
+}
+.brand-logo--light {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+}
+.brand.inverse .brand-logo--light {
+  position: static;
+  transform: none;
+  opacity: 1;
+  height: 42.5px;
+}
+
+/* --------------------------------------------------------------------------
+   Barra superior
+   -------------------------------------------------------------------------- */
+.topbar {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  gap: clamp(24px, 4vw, 62px);
+  height: var(--header-height);
+  padding-inline: var(--frame-padding);
+  background: transparent;
+}
+.topbar nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 2.1vw, 34px);
+  margin-left: auto;
+}
+.topbar nav a {
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 20, 40, 0.55);
+}
+.topbar nav a:hover { text-decoration: underline; }
+.header-actions { display: flex; align-items: center; gap: 16px; }
+.header-actions .language {
+  font-size: 11px;
+  color: #fff;
+  text-shadow: 0 1px 12px rgba(0, 20, 40, 0.55);
+  padding-left: 16px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+/* Selector de idioma sticky (vive en la cabecera fija) */
+.lang-switch { display: inline-flex; align-items: center; gap: 6px; }
+.lang-switch__btn {
+  padding: 2px 2px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  color: inherit;
+  text-shadow: inherit;
+  font: 600 11px/1 var(--font-sans);
+  letter-spacing: 0.06em;
+  opacity: 0.55;
+  transition: opacity 180ms ease;
+}
+.lang-switch__btn:hover { opacity: 0.85; }
+.lang-switch__btn[aria-pressed="true"] {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.lang-switch__sep { opacity: 0.4; font-size: 10px; }
+
+/* --------------------------------------------------------------------------
+   Base de secciones
+   -------------------------------------------------------------------------- */
+.scene {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Hero
+   -------------------------------------------------------------------------- */
+.hero { display: flex; }
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(90deg, rgba(247, 249, 251, 0.1), rgba(3, 17, 31, 0.16)),
+    #0b1a26 url("../img/hero.jpg") center right / cover no-repeat;
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  width: 46%;
+  /* Altura disponible = viewport − header. NO usa 100svh adicionales. */
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;            /* el bloque de contenido se apoya abajo */
+  gap: clamp(12px, 2.1vh, 22px);
+  padding:
+    calc(var(--header-height) + clamp(18px, 4vh, 52px))
+    0
+    clamp(24px, 5vh, 56px)
+    var(--frame-padding);
+  /* FADE EXISTENTE de la sección — el ticker de maquinaria se integra aquí,
+     sin fondo propio. NO reemplazar. */
+  background: linear-gradient(90deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(255, 255, 255, 0.95) 60%,
+    rgba(255, 255, 255, 0.58) 83%,
+    rgba(255, 255, 255, 0) 100%);
+}
+.hero .eyebrow { margin: 0; }
+/* Escala tipográfica igualada a deecstudio.online:
+   H1  38.4px (móvil) -> 56px (~1000px) -> 70.4px (tope)
+   Texto  16.3px -> 18.9px (tope) */
+.hero h1 {
+  font-size: clamp(2.6rem, 6.2vw, 5rem);   /* algo mayor: 41.6 -> 62 -> 80 px */
+  line-height: 1.03;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  max-width: none;             /* la anchura de la columna (46%) gobierna el salto */
+}
+.hero h1 span:not(.hl) { display: block; }
+.hero h1 .hl { color: var(--blue); }
+.hero .intro {
+  font-size: clamp(1.02rem, 1.3vw, 1.18rem);
+  line-height: 1.6;
+  max-width: 35rem;
+  margin: 0;
+}
+.hero .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: clamp(8px, 2vh, 20px); }
+
+/* ---- Ticker tipográfico de maquinaria — dentro de .hero-copy, sobre el fade
+   existente. Sin fondo, sin caja, sin borde: solo texto que flota. ---- */
+.hero-marquee {
+  /* ≈ 50% del ancho de la sección — deja mucho espacio negativo a la derecha */
+  width: clamp(280px, 50vw, 760px);
+  overflow: hidden;                  /* recorta el track -> sin scroll horizontal */
+  margin-top: clamp(18px, 3.6vh, 38px);
+  /* desvanece el borde derecho hacia la imagen (no es un overlay de color) */
+  -webkit-mask-image: linear-gradient(90deg, #000 70%, transparent 100%);
+          mask-image: linear-gradient(90deg, #000 70%, transparent 100%);
+}
+.hero-marquee__track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* --marquee-shift lo fija el JS = ancho exacto de UN set -> sin saltos */
+  animation: hero-marquee 40s linear infinite;
+}
+.hero-marquee__track li {
+  flex: none;
+  white-space: nowrap;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(10px, 0.8vw, 12px);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5a6472;
+  margin-inline-end: clamp(22px, 3.3vw, 46px);
+}
+.hero-marquee__track li::after {
+  content: "|";
+  margin-left: clamp(22px, 3.3vw, 46px);
+  font-weight: 400;
+  color: #aeb7c2;
+}
+@keyframes hero-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(var(--marquee-shift, -50%), 0, 0); }
+}
+.hero-marquee:hover .hero-marquee__track { animation-play-state: paused; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-marquee__track { animation: none; transform: none; }
+}
+
+/* Pantallas de poca altura: compacta sin perder jerarquía. */
+@media (min-width: 900px) and (max-height: 820px) {
+  .hero-copy { gap: clamp(9px, 1.6vh, 16px); padding-top: calc(var(--header-height) + clamp(12px, 2.5vh, 30px)); }
+  .hero-marquee { margin-top: clamp(12px, 2.4vh, 22px); }
+}
+@media (min-width: 900px) and (max-height: 680px) {
+  .hero-copy { gap: 8px; padding-top: calc(var(--header-height) + 10px); }
+  .hero h1 { font-size: clamp(2rem, 4.6vw, 3.2rem); }
+  .hero .intro { font-size: 1rem; }
+  .hero .buttons .button { min-height: 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   Equipos
+   -------------------------------------------------------------------------- */
+.equipment {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(72px, 10vh, 130px) var(--frame-padding) clamp(42px, 6vh, 82px);
+  background: var(--paper);
+}
+/* Encabezado en dos columnas reales:
+   eyebrow full-width arriba; debajo una rejilla  TÍTULO (55%) | TEXTO (45%)
+   con el enlace de catálogo bajo el título. */
+.section-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(18px, 3vh, 30px);
+}
+.section-heading .eyebrow { margin: 0; }
+.section-heading__row {
+  display: grid;
+  grid-template-columns: minmax(0, 55fr) minmax(0, 45fr);
+  grid-template-areas:
+    "title   text"
+    "catalog .";
+  column-gap: clamp(40px, 7vw, 120px);   /* espacio negativo entre columnas */
+  row-gap: clamp(18px, 3vh, 36px);
+  align-items: center;                     /* centro vertical compartido título ↔ texto */
+}
+.section-heading__title { grid-area: title; font-size: clamp(44px, 4.4vw, 76px); }
+/* "cada necesidad" siempre junta y en su propio renglón, en azul de marca */
+.section-heading__title span {
+  color: var(--blue);
+  display: block;
+  white-space: nowrap;
+}
+.section-heading .section-text { grid-area: text; }
+.section-heading .catalog { grid-area: catalog; align-self: start; }
+
+/* Texto complementario: MISMO tamaño/peso/interlineado que .hero .intro */
+.section-text {
+  font-size: clamp(1.02rem, 1.3vw, 1.18rem);
+  line-height: 1.6;
+  font-weight: 400;
+  max-width: 32rem;                      /* ancho de lectura controlado en su columna */
+  color: #4a5361;
+  margin: 0;
+}
+.catalog {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #06417a;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.catalog:hover { text-decoration: underline; }
+
+/* Tarjetas de categoría: fotografía full-bleed + degradado + contenido editorial
+   alineado abajo. 4 categorías: Corte · Doblado · Troquelado · Automatización. */
+.ecard-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(10px, 1vw, 18px);
+  margin-top: clamp(28px, 5vh, 58px);
+}
+.ecard {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 0;
+  border-radius: var(--radius);
+  background: #0b1a2b;               /* respaldo si la imagen no carga */
+}
+.ecard__img {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                 /* imagen hasta los 4 bordes */
+  transform: translateZ(0);          /* capa propia -> pinta bien dentro de la escena fija */
+  transition: transform 700ms cubic-bezier(0.22, 0.78, 0.23, 1);
+}
+/* Degradado progresivo: arriba la foto respira, abajo azul marino profundo */
+.ecard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 12, 24, 0.08) 0%,
+    rgba(4, 12, 24, 0.28) 36%,
+    rgba(5, 17, 34, 0.66) 66%,
+    rgba(3, 10, 22, 0.93) 100%
+  );
+}
+.ecard__body {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  margin-top: auto;                  /* contenido pegado abajo, no centrado */
+  display: flex;
+  flex-direction: column;
+  gap: clamp(7px, 1.1vh, 13px);
+  padding: clamp(20px, 3vh, 34px) clamp(16px, 1.7vw, 28px) clamp(22px, 3.2vh, 36px);
+  color: #fff;
+}
+.ecard__num {
+  font: 600 12px/1 var(--font-sans);
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.55);
+}
+.ecard__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  /* acotado para que "AUTOMATIZACIÓN" (la más larga) quepa en el ancho de tarjeta */
+  font-size: clamp(18px, 1.9vw, 28px);
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+.ecard__title::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 2px;
+  margin-top: clamp(9px, 1.4vh, 15px);
+  background: rgba(255, 255, 255, 0.45);
+}
+/* Tipos de maquinaria en UNA sola línea horizontal, separados por · discreto */
+.ecard__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  font-size: clamp(9px, 0.74vw, 11px);
+  line-height: 1.4;
+  letter-spacing: -0.005em;
+  color: rgba(255, 255, 255, 0.82);
+}
+.ecard__list li { display: inline; }
+.ecard__list li:not(:last-child)::after {
+  content: "·";
+  margin: 0 0.3em;
+  color: rgba(255, 255, 255, 0.5);
+}
+/* ventanas de escritorio estrechas: si no cabe, deja envolver (solo afecta a la más larga) */
+@media (min-width: 900px) and (max-width: 1150px) {
+  .ecard__list { white-space: normal; }
+}
+.ecard__cta {
+  margin-top: clamp(6px, 1.2vh, 12px);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+}
+.ecard__cta span { transition: transform 220ms ease; }
+.ecard:hover .ecard__img { transform: scale(1.05) translateZ(0); }
+.ecard:hover .ecard__cta span { transform: translateX(5px); }
+
+/* --------------------------------------------------------------------------
+   Nosotros
+   -------------------------------------------------------------------------- */
+.about {
+  display: grid;
+  grid-template-columns: 44% 56%;
+  background: var(--paper);
+}
+.about-copy {
+  padding: clamp(60px, 12vh, 150px) clamp(28px, 8vw, 130px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.about h2 { font-size: clamp(42px, 4.4vw, 74px); margin-bottom: 26px; }
+.about-copy > p:not(.eyebrow) {
+  font-size: clamp(15px, 1.2vw, 19px);
+  line-height: 1.5;
+  max-width: 390px;
+  color: #4d5869;
+  margin: 0 0 40px;
+}
+.about-facts { display: flex; flex-wrap: wrap; gap: 16px 0; margin: 0 0 30px; }
+.about-facts > div { padding: 0 18px; border-left: 1px solid #aeb8c3; }
+.about-facts > div:first-child { padding-left: 0; border-left: 0; }
+.about-facts dt { color: #092c55; font: 700 16px/1 var(--font-display); }
+.about-facts dd { margin: 3px 0 0; font-size: 10px; color: #637083; }
+.about-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 34px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  color: #45566b;
+  font-size: 11px;
+}
+.about-benefits li::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  margin: 0 9px 3px 0;
+  border-top: 1px solid #496a8b;
+}
+.about-media {
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(5, 34, 62, 0.28), rgba(5, 34, 62, 0.04)),
+    #123049 url("../img/about.jpg") center / cover;
+}
+.about-media p {
+  position: absolute;
+  right: 9%;
+  top: 15%;
+  margin: 0;
+  font-size: 10px;
+  line-height: 1.9;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* --------------------------------------------------------------------------
+   Calidad / Origen  ·  "Made in Europe"
+   -------------------------------------------------------------------------- */
+.origin {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  background: var(--paper);
+}
+.origin-copy {
+  padding: clamp(56px, 11vh, 140px) clamp(28px, 6vw, 110px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(14px, 2.3vh, 26px);
+}
+.origin-copy .eyebrow { margin: 0; }
+.origin-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+}
+.origin-flag {
+  flex: none;
+  width: 24px;
+  height: 16px;
+  border-radius: 1.5px;
+  box-shadow: 0 0 0 1px rgba(9, 20, 32, 0.1);
+}
+.origin h2 {
+  font-size: clamp(38px, 4.2vw, 66px);
+  line-height: 1.03;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+.origin h2 .hl { color: var(--blue); }
+.origin-lead {
+  margin: 0;
+  font-size: clamp(15px, 1.12vw, 18px);
+  line-height: 1.62;
+  color: #4d5869;
+  max-width: 46ch;
+}
+/* Pilares de calidad — tira infinita en UNA línea, dentro del ancho del
+   panel blanco (vive en .origin-copy, overflow oculto -> sin scroll horizontal).
+   El JS clona el set y fija --marquee-shift = ancho de UN set (loop perfecto). */
+.origin-marquee {
+  width: 100%;
+  overflow: hidden;
+  margin-top: clamp(6px, 1.6vh, 18px);
+  -webkit-mask-image: linear-gradient(90deg, #000 84%, transparent 100%);
+          mask-image: linear-gradient(90deg, #000 84%, transparent 100%);
+}
+.origin-marquee__track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  animation: origin-marquee 44s linear infinite;
+}
+.origin-marquee__track li {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  white-space: nowrap;
+  margin-inline-end: clamp(30px, 4vw, 60px);
+}
+.origin-marquee__track li::after {
+  content: "|";
+  margin-left: clamp(30px, 4vw, 60px);
+  font-weight: 400;
+  color: #b7c0cb;
+}
+.origin-marquee__ico {
+  flex: none;
+  width: 17px;
+  height: 17px;
+  color: var(--blue);
+}
+.origin-marquee__ico svg { width: 100%; height: 100%; display: block; }
+.origin-marquee__label {
+  font: 600 11px/1 var(--font-sans);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #1f2a37;
+}
+.origin-marquee__desc {
+  font-size: 13px;
+  line-height: 1;
+  color: #5b6675;
+}
+@keyframes origin-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(var(--marquee-shift, -50%), 0, 0); }
+}
+.origin-marquee:hover .origin-marquee__track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .origin-marquee__track { animation: none; transform: none; }
+}
+.origin-cta {
+  align-self: flex-start;
+  margin-top: clamp(6px, 1.4vh, 16px);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: 600 11px/1 var(--font-sans);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--blue);
+}
+.origin-cta i { font-style: normal; font-size: 15px; transition: transform 200ms ease; }
+.origin-cta:hover i { transform: translateX(5px); }
+
+.origin-media {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(6, 20, 36, 0.5) 0%, rgba(6, 20, 36, 0.16) 42%, rgba(6, 20, 36, 0.34) 100%),
+    #0b1a2b url("../img/origin.jpg") center / cover no-repeat;
+}
+.origin-stamp {
+  position: absolute;
+  /* anclado por ambos lados -> el ancho SIEMPRE es el panel menos los
+     márgenes del viewport; "EUROPE" se dimensiona contra este contenedor
+     (cqw) para caber completo a cualquier ancho, sin recortes */
+  left: clamp(22px, 5vw, 92px);
+  right: clamp(22px, 4.4vw, 78px);
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  display: grid;
+  justify-items: start;
+  container-type: inline-size;
+}
+.origin-stamp__tech {
+  position: absolute;
+  left: -4%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 106%;
+  height: 128%;
+  color: rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+}
+.origin-stamp__coord {
+  fill: rgba(255, 255, 255, 0.5);
+  font: 600 8px var(--font-sans);
+  letter-spacing: 0.16em;
+}
+/* efecto 06 · estado ambiental: la línea técnica fluye casi imperceptiblemente */
+.origin-stamp__tech-line { animation: tech-flow 3.2s linear infinite; }
+@keyframes tech-flow { to { stroke-dashoffset: -14; } }
+.origin-stamp__kicker {
+  position: relative;
+  font: 600 10px/1 var(--font-sans);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.62);
+  margin-bottom: 12px;
+}
+.origin-stamp__made {
+  position: relative;
+  font: 600 clamp(13px, 3cqw, 16px)/1 var(--font-sans);
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.82);
+  margin-left: 3px;
+}
+.origin-stamp__europe {
+  position: relative;
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  /* cqw = 1% del ancho del sello (panel − márgenes). 24cqw mantiene
+     "EUROPE" (~3.5em de avance) por debajo del 100% del contenedor. */
+  font-size: clamp(44px, 24cqw, 188px);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #fff;
+  margin: 4px 0 0 -3px;
+}
+.origin-stamp__rule {
+  width: clamp(120px, 20vw, 240px);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.34);
+  margin: clamp(14px, 2.3vh, 22px) 0 12px;
+}
+.origin-stamp__tags {
+  position: relative;
+  font: 600 9.5px/1 var(--font-sans);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* --------------------------------------------------------------------------
+   Aplicaciones
+   -------------------------------------------------------------------------- */
+/* Escena cinematográfica: panel fijo (izq.) + galería horizontal (der.).
+   El scroll vertical mueve la galería; lo controla el motor (--apps-h). */
+.applications {
+  display: flex;
+  background: var(--blue);
+  color: #fff;
+  overflow: hidden;
+}
+.apps-panel {
+  flex: 0 0 33%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(48px, 9vh, 120px) clamp(28px, 3.6vw, 70px);
+  background: var(--blue);
+  z-index: 2;
+}
+.apps-panel h2 {
+  font-size: clamp(34px, 3.6vw, 60px);
+  line-height: 1.02;
+  margin: 12px 0 clamp(28px, 5vh, 52px);
+}
+
+.apps-gallery {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+}
+.apps-track {
+  display: flex;
+  align-items: stretch;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  width: max-content;
+}
+.app {
+  position: relative;
+  flex: none;
+  /* ~3 aplicaciones completas + parte de la 4ª visibles en la galería */
+  width: clamp(240px, 20vw, 360px);
+  height: 100%;
+  overflow: hidden;
+  /* la fotografía es un background (compone bien dentro de la escena fija);
+     la url la fija cada <li> por inline style */
+  background-color: #0b1a2b;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.app + .app { margin-left: clamp(4px, 0.5vw, 10px); }
+/* efecto 05 · la aplicación centrada adquiere protagonismo (transform+opacity) */
+.app {
+  opacity: 0.62;
+  transform: scale(0.972) translateZ(0);
+  transition: opacity 480ms ease, transform 520ms cubic-bezier(0.22, 0.78, 0.23, 1);
+}
+.app.is-focus { opacity: 1; transform: scale(1) translateZ(0); }
+body:not(.in-apps) .app { opacity: 1; transform: none; }
+/* degradado oscuro sutil solo en la parte inferior */
+.app::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 13, 26, 0) 42%,
+    rgba(4, 13, 26, 0.5) 72%,
+    rgba(3, 10, 22, 0.9) 100%
+  );
+}
+.app__body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(6px, 1vh, 11px);
+  padding: clamp(22px, 3.4vh, 38px) clamp(20px, 1.7vw, 30px) clamp(24px, 3.6vh, 40px);
+  color: #fff;
+  /* la tarjeta expandida nunca cubre por completo la fotografía */
+  max-height: calc(100% - clamp(56px, 11vh, 120px));
+}
+/* refuerzo de legibilidad SOLO al expandir (degradado, no una caja) */
+.app__body::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: calc(100% + clamp(30px, 6vh, 64px));
+  z-index: -1;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(4, 13, 26, 0) 0%,
+    rgba(4, 13, 26, 0.55) 26%,
+    rgba(3, 10, 22, 0.92) 60%
+  );
+  opacity: 0;
+  transition: opacity 360ms ease;
+}
+.app.is-open .app__body::before { opacity: 1; }
+
+.app__num {
+  flex: none;
+  font: 600 12px/1 var(--font-sans);
+  letter-spacing: 0.22em;
+  color: rgba(255, 255, 255, 0.55);
+}
+.app__industry {
+  flex: none;
+  margin: 0;
+  font: 600 clamp(12px, 0.95vw, 15px)/1.2 var(--font-sans);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+}
+.app__title {
+  flex: none;
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(17px, 1.4vw, 23px);
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  color: #fff;
+}
+.app__title::after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 2px;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.42);
+}
+
+/* bloque de texto: en reposo asoma solo un avance de ~3 líneas (sin
+   saturar la tarjeta); al abrir, se despliega y se desplaza internamente
+   si el contenido excede el alto de la escena */
+.app__text {
+  min-height: 0;
+  overflow: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  font-size: clamp(11.5px, 0.8vw, 13px);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+  max-height: 4.75em;                 /* ~3 líneas */
+  transition: max-height 460ms cubic-bezier(0.22, 0.78, 0.23, 1);
+  -webkit-mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+  mask-image: linear-gradient(180deg, #000 55%, transparent 100%);
+}
+.app__text::-webkit-scrollbar { display: none; }
+.app__text > p { margin: 0 0 0.72em; }
+.app__text > p:last-child { margin-bottom: 0; }
+/* solo la aplicación abierta despliega y desplaza su lectura */
+.app.is-open .app__text {
+  max-height: 60vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* despliegue suave del contenido completo (sin salto de layout).
+   El alto objetivo (px) lo fija el motor midiendo el contenido real. */
+.app__more {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 460ms cubic-bezier(0.22, 0.78, 0.23, 1),
+              opacity 300ms ease;
+}
+.app__more-inner > p:first-child { margin-top: 0.72em; }
+.app.is-open .app__more { opacity: 1; }
+
+.app__toggle {
+  flex: none;
+  align-self: flex-start;
+  margin-top: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font: 600 10.5px/1 var(--font-sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+.app__toggle-arrow { transition: transform 240ms ease; }
+.app:hover .app__toggle-arrow { transform: translateX(4px); }
+.app.is-open:hover .app__toggle-arrow { transform: translateY(-3px); }
+
+@media (prefers-reduced-motion: reduce) {
+  .app__more { transition-duration: 1ms; }
+  .app__body::before { transition-duration: 1ms; }
+}
+
+/* --------------------------------------------------------------------------
+   Contacto
+   -------------------------------------------------------------------------- */
+.contact {
+  display: grid;
+  grid-template-columns: 34% 42% 24%;
+  background: var(--blue-deep);
+  color: #fff;
+}
+/* El envoltorio .contact-body solo agrupa para el scroll interno en móvil.
+   En desktop se vuelve transparente al layout para que el formulario y la
+   información ocupen sus columnas 2 y 3 del grid. */
+.contact-body { display: contents; }
+.contact-intro {
+  padding: clamp(52px, 10vh, 130px) clamp(28px, 5vw, 82px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(125deg, #073a68 0%, #06304f 55%, #062e54 100%);
+}
+.contact h2 { font-size: clamp(40px, 4vw, 68px); margin: 18px 0 12px; }
+.contact-intro p { font-size: 14px; line-height: 1.45; color: #dde8f1; margin: 0; max-width: 280px; }
+
+#quote-form {
+  padding: clamp(52px, 12vh, 140px) clamp(26px, 5vw, 86px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.18);
+}
+#quote-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #cdddec;
+}
+#quote-form input,
+#quote-form select {
+  height: 42px;
+  border: 1px solid #e1e5e9;
+  border-radius: var(--radius);
+  padding: 0 12px;
+  font: 400 13px var(--font-sans);
+  color: #33404f;
+  background: rgba(255, 255, 255, 0.98);
+}
+#quote-form input:user-invalid { border-color: #d9534f; }
+.two-inputs { display: flex; gap: 10px; }
+.two-inputs label { flex: 1; }
+#quote-form button { margin-top: 10px; height: 48px; }
+.form-status {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  font-size: 12px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.form-status.is-error { background: rgba(217, 83, 79, 0.25); }
+.form-status.is-ok { background: rgba(76, 175, 121, 0.25); }
+
+.contact-info {
+  padding: clamp(52px, 12vh, 140px) clamp(24px, 4vw, 62px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #fff;
+}
+.contact-info p { display: flex; align-items: flex-start; gap: 14px; margin: 0 0 26px; font-size: 13px; }
+.contact-info .ci-title {
+  display: block;
+  margin: 0 0 24px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #b9cad9;
+}
+.contact-info a { color: #e8f0f7; }
+.contact-info .ci-ico { font-size: 20px; line-height: 1; flex: none; }
+.contact-info small { display: block; font-size: 11px; color: #b9cad9; margin-top: 2px; }
+.aside-motto {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid #8db1d2;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #d9e6f0;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   Indicador de escenas — sincronizado por JS con la escena realmente visible
+   -------------------------------------------------------------------------- */
+.scene-indicator {
+  position: fixed;
+  right: clamp(20px, 3vw, 54px);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 45;
+  display: grid;
+  gap: 15px;
+}
+.scene-indicator button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgba(8, 32, 57, 0.4);
+  font: 600 10px/1 var(--font-sans);
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  transition: color 300ms ease;
+}
+.scene-indicator button > span {
+  width: 1.7em;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.scene-indicator button::after {
+  content: "";
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  transform-origin: right;
+  transition: transform 420ms cubic-bezier(0.22, 0.78, 0.23, 1);
+}
+.scene-indicator button:hover { color: #073967; }
+.scene-indicator button[aria-current="true"] { color: #073967; }
+.scene-indicator button[aria-current="true"]::after {
+  transform: scaleX(2.4);
+  /* efecto 06 · latido ambiental casi imperceptible del indicador activo */
+  animation: seg-breathe 4.6s ease-in-out infinite;
+}
+@keyframes seg-breathe { 0%, 100% { opacity: 1; } 50% { opacity: 0.66; } }
+.scene-indicator.on-dark button { color: rgba(255, 255, 255, 0.5); }
+.scene-indicator.on-dark button:hover,
+.scene-indicator.on-dark button[aria-current="true"] { color: #fff; }
+
+/* ==========================================================================
+   MOTOR CINEMATIC SCROLLYTELLING — núcleo compartido (desktop + mobile)
+   El JS añade body.cinematic-on. En desktop conduce con el scroll (modo
+   "scrub", body alto de N×100svh); en mobile bloquea el scroll y avanza una
+   escena por gesto (modo "step", body.cinematic-step). Todo el transform /
+   opacity lo calcula el JS por frame como función pura de la posición p.
+   ========================================================================== */
+body.cinematic-on .topbar {
+  position: fixed;
+  transition: color 450ms ease;
+}
+body.cinematic-on .topbar.nav-dark nav a,
+body.cinematic-on .topbar.nav-dark .language {
+  color: #0b1930;
+  text-shadow: none;
+  border-color: rgba(11, 25, 48, 0.28);
+}
+body.cinematic-on .topbar.brand-light .brand { color: #fff; }
+/* cabecera sobre fondo oscuro -> logotipo invertido */
+body.cinematic-on .topbar.brand-light .brand-logo:not(.brand-logo--light) { opacity: 0; }
+body.cinematic-on .topbar.brand-light .brand-logo--light { opacity: 1; }
+
+body.cinematic-on .stage { position: relative; }
+
+/* Las seis escenas permanecen en el DOM, fijas y superpuestas.
+   Nunca display:none. El JS mueve cada una con translate3d. */
+body.cinematic-on .stage > .scene {
+  position: fixed;
+  inset: 0;
+  height: 100svh;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+/* Capas: la entrante cubre a la saliente. Como saliente y entrante viajan en
+   sentidos OPUESTOS a distancia completa, sus bordes se tocan y la unión
+   cubre el viewport (sin huecos). */
+body.cinematic-on .stage > .scene[data-role="previous"]  { z-index: 1; }
+body.cinematic-on .stage > .scene[data-role="next"]      { z-index: 1; }
+body.cinematic-on .stage > .scene[data-role="active"]    { z-index: 2; }
+body.cinematic-on .stage > .scene[data-role="active-in"] { z-index: 3; }
+
+body.cinematic-on .stage > .scene > [data-bg] { will-change: transform; }
+body.cinematic-on .stage [data-reveal] { will-change: transform, opacity; }
+body.cinematic-on .hero { background: #0b1a26; }
+
+/* Desktop (modo scrub): el <body> conserva su scroll vertical (escenario
+   alto). clip -> recorta el desborde horizontal sin romper window.scrollY. */
+@media (min-width: 900px) {
+  body.cinematic-on { overflow-x: clip; }
+}
+
+/* ==========================================================================
+   MODO STEP (mobile): bloqueo total del scroll; el gesto cambia de escena
+   ========================================================================== */
+body.cinematic-step {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+body.cinematic-step .stage { height: 100svh; }
+
+/* Zona con scroll propio dentro de una escena (p. ej. el formulario). */
+body.cinematic-step [data-scene-scroll] {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+}
+
+/* ==========================================================================
+   COMPOSICIÓN MOBILE — cada escena rediseñada en vertical para 100svh
+   ========================================================================== */
+@media (max-width: 899px) {
+  :root { --header-height: 60px; --frame-padding: 22px; }
+
+  .topbar { gap: 14px; }
+  .topbar nav { display: none; }
+  /* el hero en móvil es imagen a sangre (oscura) -> logotipo invertido */
+  body.cinematic-on .topbar.at-hero .brand-logo:not(.brand-logo--light) { opacity: 0; }
+  body.cinematic-on .topbar.at-hero .brand-logo--light { opacity: 1; }
+  /* el selector de idioma permanece visible en móvil, más compacto */
+  .header-actions .language { padding-left: 0; border-left: 0; }
+  .lang-switch__btn { font-size: 10.5px; }
+  .button.compact { font-size: 9px; padding: 0 13px; }
+
+  h1, h2 { letter-spacing: -0.03em; }
+
+  /* --- estructura común de escena en vertical --- */
+  .scene {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ---------- 01 · HERO ---------- */
+  .hero { position: relative; justify-content: flex-end; }
+  .hero-media { position: absolute; inset: 0; z-index: 0; }
+  .hero-copy {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    min-height: 0;
+    flex: 1;
+    justify-content: flex-end;
+    /* hueco para el indicador de escenas flotante */
+    padding: calc(var(--header-height) + 24px) var(--frame-padding) calc(env(safe-area-inset-bottom) + 46px);
+    background: linear-gradient(180deg,
+      rgba(9, 20, 32, 0) 0%,
+      rgba(9, 20, 32, 0.12) 34%,
+      rgba(9, 20, 32, 0.66) 72%,
+      rgba(9, 20, 32, 0.9) 100%);
+    color: #fff;
+  }
+  .hero .eyebrow { color: #cfe0f0; margin-bottom: 10px; }
+  /* tamaño heredado del clamp base (igual a deecstudio.online: ~38.4px en móvil) */
+  .hero h1 span { display: inline; }
+  .hero h1 .hl { color: #6fa8db; }   /* azul de marca aclarado para leer sobre la imagen */
+  .hero .intro { color: #dbe6f0; max-width: 34ch; }
+  .hero .buttons { gap: 10px; margin-top: 0; }
+  .hero .buttons .button { flex: 1 1 auto; min-height: 46px; }
+
+  /* Ticker en mobile: mismo concepto (integrado al fade, sin fondo), más pequeño */
+  .hero-marquee { width: 100%; margin-top: clamp(14px, 2.6vh, 22px); }
+  .hero-marquee__track li {
+    font-size: 9.5px;
+    letter-spacing: 0.13em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-inline-end: 18px;
+  }
+  .hero-marquee__track li::after { margin-left: 18px; color: rgba(255, 255, 255, 0.38); }
+
+  /* ---------- 02 · EQUIPOS ---------- */
+  .equipment {
+    padding: calc(var(--header-height) + 24px) 0 26px;
+    background: var(--paper);
+  }
+  .equipment .section-heading {
+    padding: 0 var(--frame-padding);
+    gap: 14px;
+  }
+  .equipment .eyebrow { margin-bottom: 0; }
+  /* móvil/tablet: una sola columna -> título, texto, enlace */
+  .equipment .section-heading__row {
+    grid-template-columns: 1fr;
+    grid-template-areas: "title" "text" "catalog";
+    column-gap: 0;
+    row-gap: 14px;
+  }
+  .section-heading__title { font-size: clamp(30px, 8.5vw, 44px); }
+  /* texto complementario: misma escala que .hero .intro en móvil (16.3px / 1.6) */
+  .equipment .section-text { margin: 0; max-width: 34ch; }
+
+  /* Carrusel horizontal de tarjetas full-bleed.
+     Deslizar en horizontal recorre las 4 categorías; en vertical cambia de escena. */
+  .equipment { justify-content: flex-start; }
+  .ecard-grid {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    gap: 12px;
+    margin: 16px 0 0;
+    padding: 2px var(--frame-padding) 2px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-x;
+    scrollbar-width: none;
+  }
+  .ecard-grid::-webkit-scrollbar { display: none; }
+  .ecard {
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+  }
+  .ecard__body { padding: 22px 20px 26px; }
+  .ecard__title { font-size: clamp(20px, 6vw, 26px); }
+  /* en móvil, una línea si cabe; si no, envuelve (la tarjeta es estrecha) */
+  .ecard__list { white-space: normal; font-size: 12px; line-height: 1.5; }
+  .ecard__list li:not(:last-child)::after { margin: 0 0.35em; }
+
+  /* ---------- 03 · CALIDAD / ORIGEN ---------- */
+  /* contenido con altura natural → la MISMA fotografía ocupa TODO el resto
+     del viewport (sin hueco blanco), con MADE IN EUROPE integrado encima */
+  .origin { display: flex; flex-direction: column; }
+  .origin-copy {
+    flex: 0 0 auto;             /* altura natural; NUNCA se encoge -> no puede solapar la imagen */
+    order: 1;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: calc(var(--header-height) + 22px) var(--frame-padding) 0;
+    margin-bottom: clamp(24px, 4vh, 34px);   /* respiro discreto entre el texto y la fotografía */
+  }
+  .origin h2 { font-size: clamp(28px, 7.6vw, 38px); }
+  .origin-lead { font-size: 14.5px; line-height: 1.55; max-width: none; }
+  .origin-marquee__desc { font-size: 12.5px; }
+  .origin-marquee__track li { margin-inline-end: 26px; }
+  .origin-marquee__track li::after { margin-left: 26px; }
+
+  .origin-media {
+    order: 2;
+    flex: 1 1 auto;             /* ocupa el resto del viewport bajo el texto */
+    min-height: 36svh;          /* piso: siempre se ve la máquina y el corte */
+    /* misma imagen; reencuadre para priorizar cabezal + efecto de corte */
+    background-position: 60% 40%;
+  }
+  .origin-stamp {
+    right: auto;
+    left: var(--frame-padding);
+    width: calc(100% - var(--frame-padding) * 2);
+  }
+  .origin-stamp__europe { font-size: min(22cqw, 80px); }
+  .origin-stamp__tech { left: -4%; width: 108%; height: 132%; }
+
+  /* ---------- 04 · NOSOTROS ---------- */
+  /* mismo patrón que "Calidad / Origen": texto con altura natural →
+     hueco discreto → la misma fotografía llena el resto del viewport */
+  .about { display: flex; flex-direction: column; }
+  .about-media {
+    flex: 1 1 auto;            /* ocupa el resto del viewport bajo el texto */
+    min-height: 36svh;         /* piso: siempre se ve la instalación */
+    background-position: center 30%;
+  }
+  .about-media p { right: auto; left: var(--frame-padding); top: auto; bottom: 16px; font-size: 9px; }
+  .about-copy {
+    flex: 0 0 auto;            /* altura natural; NUNCA se encoge -> no solapa la imagen */
+    padding: calc(var(--header-height) + 20px) var(--frame-padding) 0;
+    margin-bottom: clamp(24px, 4vh, 34px);   /* respiro discreto entre el texto y la fotografía */
+    justify-content: flex-start;
+  }
+  .about h2 { font-size: clamp(30px, 8.5vw, 44px); margin-bottom: 16px; }
+  .about-copy > p:not(.eyebrow) { font-size: 15px; margin: 0 0 20px; max-width: none; }
+  .about-facts { gap: 0; margin-bottom: 18px; }
+  .about-facts > div { flex: 1; padding: 0 12px; }
+  .about-benefits { flex-direction: row; flex-wrap: wrap; gap: 10px 20px; margin-bottom: 20px; }
+
+  /* ---------- 05 · APLICACIONES ----------
+     En móvil la galería es un CARRUSEL TÁCTIL: swipe horizontal = cambia de
+     aplicación (lo conduce el motor con transform:translateX). El swipe
+     vertical solo entra/sale de la escena. */
+  .applications { flex-direction: column; }
+  .apps-panel {
+    flex: none;
+    justify-content: flex-start;
+    padding: calc(var(--header-height) + 20px) var(--frame-padding) 18px;
+  }
+  .apps-panel h2 { font-size: clamp(26px, 8vw, 38px); margin: 8px 0 18px; }
+  .apps-panel .button { align-self: flex-start; }
+
+  .apps-gallery {
+    flex: 1;
+    min-height: 0;
+    /* desvanece el borde derecho -> comunica que hay más tarjetas al deslizar */
+    -webkit-mask-image: linear-gradient(90deg, #000 87%, rgba(0, 0, 0, 0.5) 100%);
+            mask-image: linear-gradient(90deg, #000 87%, rgba(0, 0, 0, 0.5) 100%);
+  }
+  .app { width: 87vw; transform: scale(0.978) translateZ(0); }  /* menos escala en móvil */
+  .app + .app { margin-left: 10px; }
+  .app__body { padding: 22px 20px 26px; max-height: calc(100% - 84px); }
+  .app__industry { font-size: 12px; }
+  .app__title { font-size: 20px; }
+  .app__text { font-size: 12.5px; }
+
+  /* ---------- 06 · CONTACTO ---------- */
+  .contact { display: flex; flex-direction: column; }
+  .contact-intro {
+    flex: none;
+    padding: calc(var(--header-height) + 20px) var(--frame-padding) 20px;
+    background: linear-gradient(160deg, #073a68, #062e54);
+  }
+  .contact-intro .brand.inverse { display: none; }
+  .contact h2 { font-size: clamp(28px, 8vw, 40px); margin: 4px 0 8px; }
+  .contact-intro p { font-size: 13px; max-width: none; }
+  .contact-body {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  #quote-form {
+    border: 0;
+    padding: 22px var(--frame-padding);
+    gap: 11px;
+    justify-content: flex-start;
+  }
+  .two-inputs { flex-direction: column; gap: 11px; }
+  .two-inputs label { width: 100%; }
+  #quote-form input, #quote-form select { height: 46px; }
+  .contact-info {
+    padding: 8px var(--frame-padding) calc(env(safe-area-inset-bottom) + 40px);
+  }
+  .contact-info p { margin-bottom: 18px; }
+  .aside-motto { margin-top: 24px; }
+
+  /* ---------- indicador de escenas: fila inferior centrada ---------- */
+  .scene-indicator {
+    top: auto;
+    right: auto;
+    left: 50%;
+    bottom: calc(env(safe-area-inset-bottom) + 12px);
+    transform: translateX(-50%);
+    grid-auto-flow: column;
+    align-items: center;
+    gap: 9px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+  .scene-indicator.on-dark { background: rgba(9, 20, 32, 0.28); }
+  .scene-indicator button { gap: 0; }
+  .scene-indicator button > span { display: none; }
+  .scene-indicator button::after {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    transform-origin: center;
+    transition: width 360ms cubic-bezier(0.22, 0.78, 0.23, 1), background-color 300ms ease;
+  }
+  .scene-indicator button[aria-current="true"]::after { width: 22px; transform: none; }
+}
+
+/* ==========================================================================
+   Fallback SOLO cuando el motor no corre (movimiento reducido / sin JS)
+   ========================================================================== */
+body:not(.cinematic-on) .stage > .scene {
+  position: relative;
+  transform: none !important;
+  opacity: 1 !important;
+}
+body:not(.cinematic-on) .scene-indicator { display: none; }
+
+body.reveal-on [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 720ms cubic-bezier(0.22, 0.78, 0.23, 1);
+}
+body.reveal-on [data-reveal].in-view {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+  body.reveal-on [data-reveal] { opacity: 1 !important; transform: none !important; }
+  /* sin movimiento ambiental ni protagonismo animado; contenido siempre legible */
+  .origin-stamp__tech-line,
+  .scene-indicator button[aria-current="true"]::after { animation: none !important; }
+  .app, .app.is-focus { opacity: 1 !important; transform: none !important; }
+}
