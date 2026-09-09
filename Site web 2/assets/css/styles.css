@@ -1187,8 +1187,19 @@ body.cinematic-step [data-scene-scroll] {
 @media (max-width: 899px) {
   :root { --header-height: 60px; --frame-padding: 22px; }
 
-  .topbar { gap: 14px; }
+  /* Header móvil: LOGO ←—— espacio flexible ——→ (ES + COTIZA) juntos a la dcha. */
+  .topbar {
+    justify-content: space-between;
+    gap: 12px;                       /* separación mínima si el contenido fuese muy ancho */
+  }
   .topbar nav { display: none; }
+  .brand { flex: none; }
+  .header-actions {
+    flex: none;                      /* el grupo derecho no se estira ni se encoge */
+    margin-left: auto;               /* refuerza el empuje al extremo derecho */
+    gap: 12px;                       /* pequeño gap entre ES y el botón */
+  }
+  .header-actions .button.compact { white-space: nowrap; }
   /* el hero en móvil es imagen a sangre (oscura) -> logotipo invertido */
   body.cinematic-on .topbar.at-hero .brand-logo:not(.brand-logo--light) { opacity: 0; }
   body.cinematic-on .topbar.at-hero .brand-logo--light { opacity: 1; }
@@ -1431,6 +1442,17 @@ body.cinematic-step [data-scene-scroll] {
     transition: width 360ms cubic-bezier(0.22, 0.78, 0.23, 1), background-color 300ms ease;
   }
   .scene-indicator button[aria-current="true"]::after { width: 22px; transform: none; }
+}
+
+/* Teléfonos muy estrechos: el grupo (ES + COTIZA) se compacta para que
+   TODO quepa en el viewport sin overflow (mismo layout, solo más ceñido). */
+@media (max-width: 360px) {
+  .brand-logo { height: 30px; }
+  .header-actions { gap: 8px; }
+  .lang-switch { gap: 4px; }
+  .lang-switch__btn { font-size: 9.5px; }
+  .lang-switch__sep { display: none; }
+  .button.compact { font-size: 8px; padding: 0 9px; }
 }
 
 /* ==========================================================================

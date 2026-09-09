@@ -1,0 +1,12 @@
+{
+  // El nombre debe COINCIDIR con el del proyecto/Worker en Cloudflare.
+  // Cámbialo si tu proyecto se llama distinto.
+  "name": "jordi-maquinaria-mexico",
+  "compatibility_date": "2025-01-01",
+
+  // Sitio 100% estático: sin script de Worker, solo se sirven estos archivos.
+  // `_headers` y `_redirects` (si lo hubiera) se respetan automáticamente.
+  "assets": {
+    "directory": "./"
+  }
+}
